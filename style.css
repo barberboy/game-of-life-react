@@ -1,0 +1,23 @@
+#board {
+    position: relative;
+}
+
+.cell {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px #000 solid;
+}
+
+.cell.black, .cell.white {
+    border: 1px solid #000;
+}
+
+.cell.alive {
+    background-color: #444;
+}
+
+.cell.dead {
+    background-color: #eee;
+}
