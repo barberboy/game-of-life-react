@@ -2,6 +2,16 @@
     position: relative;
 }
 
+.playbutton  {
+    display:inline-block;
+    float:left;
+}
+
+.clearbutton {
+    display:inline-block;
+    float:left;
+}
+
 .cell {
     width: 10px;
     height: 10px;

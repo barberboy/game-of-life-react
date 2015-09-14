@@ -22,12 +22,40 @@ var PlayButton = React.createClass({
             this.text = "Play";
         }
         this.props.onPlay();
-        
-
     },
     render: function() {
         return (
             <div className="playbutton">
+             <button onClick={this.handleClick} type="button">{this.text}</button> 
+            </div>
+        )
+    }
+});
+
+var ClearButton = React.createClass({
+    text: "Clear",
+    handleClick: function() {
+        this.props.board.clear_board();
+        this.props.onPlay();
+    },
+    render: function() {
+        return (
+            <div className="clearbutton">
+             <button onClick={this.handleClick} type="button">{this.text}</button> 
+            </div>
+        )
+    }
+});
+
+var SeedButton = React.createClass({
+    text: "Seed",
+    handleClick: function() {
+        this.props.board.seed();
+        this.props.onPlay();
+    },
+    render: function() {
+        return (
+            <div className="seedbutton">
              <button onClick={this.handleClick} type="button">{this.text}</button> 
             </div>
         )
@@ -94,6 +122,8 @@ var ContainerView = React.createClass({
         return (
             <div>
                 <PlayButton board={this.state.board} onPlay={this.onBoardUpdate}/>
+                <ClearButton board={this.state.board} onPlay={this.onBoardUpdate}/>
+                <SeedButton board={this.state.board} onPlay={this.onBoardUpdate}/>
                 <BoardView board={this.state.board} onPlay={this.onBoardUpdate} />
                 
             </div>

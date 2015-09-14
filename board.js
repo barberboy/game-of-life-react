@@ -20,6 +20,43 @@ Board.prototype.create_board = function(height, width) {
     return board;
 };
 
+Board.prototype.clear_board = function() {
+    for (var y = 0; y < this.height; y++) {
+        for (var x = 0; x < this.width; x++)
+            this.board[y][x] = CellStates.DEAD;
+    }
+}
+
+Board.prototype.seed = function(){
+    //Top left corner glider
+    this.board[0][0] = CellStates.ALIVE;
+    this.board[1][1] = CellStates.ALIVE;
+    this.board[2][0] = CellStates.ALIVE;
+    this.board[1][2] = CellStates.ALIVE;
+    this.board[2][1] = CellStates.ALIVE;
+    
+    //Top right corner glider
+    this.board[0][59] = CellStates.ALIVE;
+    this.board[2][59] = CellStates.ALIVE;
+    this.board[1][58] = CellStates.ALIVE;
+    this.board[2][58] = CellStates.ALIVE;
+    this.board[1][57] = CellStates.ALIVE;
+    
+    //Bottom Right corner glider
+    this.board[27][59] = CellStates.ALIVE;
+    this.board[29][59] = CellStates.ALIVE;
+    this.board[28][58] = CellStates.ALIVE;
+    this.board[27][58] = CellStates.ALIVE;
+    this.board[28][57] = CellStates.ALIVE;
+    
+    //Bottom Left corner glider
+    this.board[29][0] = CellStates.ALIVE;
+    this.board[27][0] = CellStates.ALIVE;
+    this.board[27][1] = CellStates.ALIVE;
+    this.board[28][1] = CellStates.ALIVE;
+    this.board[28][2] = CellStates.ALIVE;
+}
+
 Board.prototype.changeState = function(y, x) {
     console.log("Selected " + y + ", " + x);
     if (this.board[y][x] == CellStates.DEAD)
