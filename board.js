@@ -27,34 +27,125 @@ Board.prototype.clear_board = function() {
     }
 }
 
-Board.prototype.seed = function(){
-    //Top left corner glider
-    this.board[0][0] = CellStates.ALIVE;
-    this.board[1][1] = CellStates.ALIVE;
-    this.board[2][0] = CellStates.ALIVE;
-    this.board[1][2] = CellStates.ALIVE;
-    this.board[2][1] = CellStates.ALIVE;
-    
-    //Top right corner glider
-    this.board[0][59] = CellStates.ALIVE;
-    this.board[2][59] = CellStates.ALIVE;
-    this.board[1][58] = CellStates.ALIVE;
-    this.board[2][58] = CellStates.ALIVE;
-    this.board[1][57] = CellStates.ALIVE;
-    
-    //Bottom Right corner glider
-    this.board[27][59] = CellStates.ALIVE;
-    this.board[29][59] = CellStates.ALIVE;
-    this.board[28][58] = CellStates.ALIVE;
-    this.board[27][58] = CellStates.ALIVE;
-    this.board[28][57] = CellStates.ALIVE;
-    
-    //Bottom Left corner glider
-    this.board[29][0] = CellStates.ALIVE;
-    this.board[27][0] = CellStates.ALIVE;
-    this.board[27][1] = CellStates.ALIVE;
-    this.board[28][1] = CellStates.ALIVE;
-    this.board[28][2] = CellStates.ALIVE;
+Board.prototype.seed = function(seed){
+    if(seed == "Glider")
+    {
+        this.board[0][0] = CellStates.ALIVE;
+        this.board[1][1] = CellStates.ALIVE;
+        this.board[2][0] = CellStates.ALIVE;
+        this.board[1][2] = CellStates.ALIVE;
+        this.board[2][1] = CellStates.ALIVE;
+    }
+    else if(seed == "Pulsar"){
+        this.board[4][5] = CellStates.ALIVE;
+        this.board[3][5] = CellStates.ALIVE;
+        this.board[5][5] = CellStates.ALIVE;
+        this.board[5][6] = CellStates.ALIVE;
+        this.board[5][10] = CellStates.ALIVE;
+        
+        this.board[5][11] = CellStates.ALIVE;
+        this.board[3][11] = CellStates.ALIVE;
+        this.board[4][11] = CellStates.ALIVE;
+        this.board[7][6] = CellStates.ALIVE;
+        this.board[7][7] = CellStates.ALIVE;
+        
+        this.board[8][5] = CellStates.ALIVE;
+        this.board[9][5] = CellStates.ALIVE;
+        this.board[9][6] = CellStates.ALIVE;
+        this.board[8][7] = CellStates.ALIVE;
+        this.board[7][10] = CellStates.ALIVE;
+        
+        this.board[7][9] = CellStates.ALIVE;
+        this.board[8][9] = CellStates.ALIVE;
+        this.board[9][10] = CellStates.ALIVE;
+        this.board[9][11] = CellStates.ALIVE;
+        this.board[8][11] = CellStates.ALIVE;
+        
+        this.board[7][13] = CellStates.ALIVE;
+        this.board[7][14] = CellStates.ALIVE;
+        this.board[7][15] = CellStates.ALIVE;
+        this.board[8][13] = CellStates.ALIVE;
+        this.board[7][3] = CellStates.ALIVE;
+        
+        this.board[7][2] = CellStates.ALIVE;
+        this.board[7][1] = CellStates.ALIVE;
+        this.board[8][3] = CellStates.ALIVE;
+        this.board[11][6] = CellStates.ALIVE;
+        this.board[11][5] = CellStates.ALIVE;
+        
+        this.board[12][5] = CellStates.ALIVE;
+        this.board[11][10] = CellStates.ALIVE;
+        this.board[11][11] = CellStates.ALIVE;
+        this.board[12][9] = CellStates.ALIVE;
+        this.board[12][11] = CellStates.ALIVE;
+        this.board[13][9] = CellStates.ALIVE;
+        
+        this.board[13][10] = CellStates.ALIVE;
+        this.board[12][7] = CellStates.ALIVE;
+        this.board[13][7] = CellStates.ALIVE;
+        this.board[13][6] = CellStates.ALIVE;
+        this.board[13][3] = CellStates.ALIVE;
+        this.board[12][3] = CellStates.ALIVE;
+        
+        this.board[13][2] = CellStates.ALIVE;
+        this.board[13][1] = CellStates.ALIVE;
+        this.board[13][13] = CellStates.ALIVE;
+        this.board[12][13] = CellStates.ALIVE;
+        this.board[13][14] = CellStates.ALIVE;
+        
+        this.board[13][15] = CellStates.ALIVE;
+        this.board[15][6] = CellStates.ALIVE;
+        this.board[15][5] = CellStates.ALIVE;
+        this.board[16][5] = CellStates.ALIVE;
+        this.board[17][5] = CellStates.ALIVE;
+        this.board[15][10] = CellStates.ALIVE;
+        
+        this.board[15][11] = CellStates.ALIVE;
+        this.board[16][11] = CellStates.ALIVE;
+        this.board[17][11] = CellStates.ALIVE;
+    }
+    else if (seed == "Pentadecathlon"){
+        this.board[4][3] = CellStates.ALIVE;
+        this.board[4][4] = CellStates.ALIVE;
+        this.board[3][5] = CellStates.ALIVE;
+        this.board[5][5] = CellStates.ALIVE;
+        this.board[4][6] = CellStates.ALIVE;
+        
+        this.board[4][7] = CellStates.ALIVE;
+        this.board[4][8] = CellStates.ALIVE;
+        this.board[4][9] = CellStates.ALIVE;
+        this.board[3][10] = CellStates.ALIVE;
+        this.board[5][10] = CellStates.ALIVE;
+        
+        this.board[4][11] = CellStates.ALIVE;
+        this.board[4][12] = CellStates.ALIVE;
+    }
+    else if(seed =="Lightweight spaceship"){
+        console.log("hsld;fj")
+        this.board[0][0] = CellStates.ALIVE;
+        this.board[2][0] = CellStates.ALIVE;
+        this.board[3][1] = CellStates.ALIVE;
+        this.board[3][2] = CellStates.ALIVE;
+        this.board[3][3] = CellStates.ALIVE;
+        
+        this.board[3][4] = CellStates.ALIVE;
+        this.board[2][4] = CellStates.ALIVE;
+        this.board[1][4] = CellStates.ALIVE;
+        this.board[0][3] = CellStates.ALIVE;
+    }
+}
+
+Board.prototype.random_seed = function()
+{
+    for (var y = 0; y < this.height; y++) {
+        for (var x = 0; x < this.width; x++){
+            if (Math.floor(Math.random() * (1 - 0 + 1)) + 0 == 1)
+                this.board[y][x] = CellStates.DEAD;
+            else
+                this.board[y][x] = CellStates.ALIVE;
+        }
+    }
+    Math.floor(Math.random() * (1 - 0 + 1)) + 0;
 }
 
 Board.prototype.changeState = function(y, x) {

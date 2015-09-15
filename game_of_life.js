@@ -47,17 +47,40 @@ var ClearButton = React.createClass({
     }
 });
 
-var SeedButton = React.createClass({
-    text: "Seed",
+var RandomSeedButton = React.createClass({
+    text: "Random Seed",
     handleClick: function() {
-        this.props.board.seed();
+        this.props.board.random_seed();
         this.props.onPlay();
     },
     render: function() {
         return (
-            <div className="seedbutton">
+            <div className="randomseedbutton">
              <button onClick={this.handleClick} type="button">{this.text}</button> 
             </div>
+        )
+    }
+});
+
+var Seed = React.createClass({
+    handleClick: function(){
+        this.props.board.seed(this.props.item);
+        this.props.onPlay();
+    },
+    render: function(){
+        return(<option onClick={this.handleClick}>{this.props.item}</option>)
+    }
+});
+
+var SeedSelect = React.createClass({
+    render: function() {
+        return (
+            <select>
+                <Seed item={"Glider"} board={this.props.board} onPlay={this.props.onPlay} />
+                <Seed item={"Pulsar"} board={this.props.board} onPlay={this.props.onPlay} /> 
+                <Seed item={"Pentadecathlon"} board={this.props.board} onPlay={this.props.onPlay} /> 
+                <Seed item={"Lightweight spaceship"} board={this.props.board} onPlay={this.props.onPlay} /> 
+            </select>
         )
     }
 });
@@ -123,13 +146,15 @@ var ContainerView = React.createClass({
             <div>
                 <PlayButton board={this.state.board} onPlay={this.onBoardUpdate}/>
                 <ClearButton board={this.state.board} onPlay={this.onBoardUpdate}/>
-                <SeedButton board={this.state.board} onPlay={this.onBoardUpdate}/>
+                <RandomSeedButton board={this.state.board} onPlay={this.onBoardUpdate}/>
+                <SeedSelect board={this.state.board} onPlay={this.onBoardUpdate} />
                 <BoardView board={this.state.board} onPlay={this.onBoardUpdate} />
-                
             </div>
         );
     }
 });
+
+
 
 React.render(
     <ContainerView board={board} />,
