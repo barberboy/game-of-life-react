@@ -64,6 +64,7 @@ var RandomSeedButton = React.createClass({
 
 var Seed = React.createClass({
     handleClick: function(){
+        this.props.board.clear_board();
         this.props.board.seed(this.props.item);
         this.props.onPlay();
     },
